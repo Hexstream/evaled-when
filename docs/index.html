@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="canonical" href="https://www.hexstreamsoft.com/libraries/evaled-when/" />
+    <meta name="author" content="Jean-Philippe Paradis" />
+    <link rel="author" href="https://abc.hexstream.xyz/" />
+    <link rel="license" href="https://www.hexstreamsoft.com/UNLICENSE" />
+    <meta name="description" content="Provides a way of extracting and replicating the compile-time side-effects of forms." />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>evaled-when | Libraries | HexstreamSoft</title>
+    <link href="https://www.hexstreamsoft.com/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="https://www.hexstreamsoft.com/libraries/libraries.css" rel="stylesheet" type="text/css" />
+    <link href="https://global.hexstreamsoft.com/css/cl-definitions.css" rel="stylesheet" type="text/css" />
+    <script src="https://global.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="https://www.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="https://www.hexstreamsoft.com/libraries/libraries.js" defer></script>
+  </head>
+
+  <body>
+
+    <nav id="top-nav">
+
+      <div class="main">
+
+        <div class="breadcrumbs">
+          <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
+          <span class="crumb"><span class="s"> » </span><a href="https://www.hexstreamsoft.com/libraries/">Libraries</a></span>
+          <span class="crumb"><span class="s"> » </span><a class="here">evaled-when</a></span>
+        </div>
+
+        <nav class="tabs" id="meta-nav">
+          <ul>
+            <li><a class="github" href="https://github.com/Hexstream/evaled-when"><span>See on GitHub</span></a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2020-08-26">26 august 2020</time><span>.</span></p>
+
+    </nav>
+
+    <main>
+
+      <header id="page-header">
+        <h1>evaled-when</h1>
+      </header>
+
+      <div class="tags contains-groups">
+        <div class="group prominent">
+          <span class="tag hv license">
+            <span class="h">License<span>:</span></span>
+            <span class="v">Public Domain</span>
+          </span>
+          <span class="s">, </span>
+          <span class="tag hv quicklisp">
+            <span class="h">Load it with Quicklisp<span>:</span></span>
+            <code class="v">(ql:quickload "evaled-when")</code>
+          </span>
+        </div>
+        <div class="group">
+          <span class="tag hv">
+            <span class="h">Library type<span>:</span></span>
+            <span class="v">Macro</span>
+          </span>
+          <span class="s">, </span>
+          <span class="tag hv">
+            <span class="h">Project complexity<span>:</span></span>
+            <span class="v">Trivial/Simple</span>
+          </span>
+        </div>
+      </div>
+
+      <nav class="tabs" id="further-info">
+        <ul>
+          <li><a href="https://www.hexstreamsoft.com/libraries/releases/latest-versions/#evaled-when">Latest release</a></li>
+          <li><a href="https://www.hexstreamsoft.com/libraries/dependencies/#evaled-when">Dependencies</a></li>
+        </ul>
+        <ul>
+          <li><a href="https://www.hexstreamsoft.com/libraries/external-pages-xref/#evaled-when">External library pages</a></li>
+        </ul>
+      </nav>
+
+      <section id="introduction">
+
+        <p><dfn><code class="relevant">evaled-when</code></dfn> provides a way of extracting and replicating the compile-time side-effects of forms.</p>
+
+      </section>
+
+      <nav class="tabs">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#dictionary">Dictionary</a></li>
+        </ul>
+      </nav>
+
+      <section id="concepts">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#overview" class="anchor">⚓</a>
+          </span>
+          <span class="breadcrumbs">
+            <a class="here">Overview</a>
+          </span>
+        </h1>
+
+        <p>Many macros have interesting compile-time side-effects that would normally be hard or impossible to replicate without integrating with their internals.</p>
+        <p><code class="relevant"><a href="#dictionary_evaled-when">evaled-when</a></code> allows you to trivially and portably extract and replicate these compile-time side-effects, which can be useful if you're trying to make a better version of <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm" target="_blank">defclass</a> (as indeed I am), for instance.</p>
+
+      </section>
+
+      <section id="dictionary">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#dictionary" class="anchor">⚓</a>
+          </span>
+          <span class="breadcrumbs">
+            <a class="here">Dictionary</a>
+          </span>
+        </h1>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#dictionary_evaled-when"><span class="type">Package</span> <code>evaled-when</code></a></li>
+            <li><a href="#dictionary_evaled-when"><span class="type">Macro</span> <code>evaled-when</code></a></li>
+            <li><a href="#dictionary_extract-compile-toplevel-forms"><span class="type">Function</span> <code>extract-compile-toplevel-forms</code></a></li>
+            <li><a href="#dictionary_parse-situations"><span class="type">Function</span> <code>parse-situations</code></a></li>
+          </ul>
+        </nav>
+
+        <section id="dictionary_evaled-when">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_evaled-when" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">evaled-when</a></span>
+            </span>
+          </h1>
+
+          <article class="package definition">
+
+            <h1><span class="type">Package</span> <span class="name self">evaled-when</span></h1>
+
+            <section class="description">
+              <h1>Description</h1>
+              <p>One should normally import a single symbol from this package, <code class="relevant"><a href="#dictionary_evaled-when">evaled-when</a></code>.<br />Any other symbols from this package should normally be explicitly qualified, such as <code class="relevant"><a href="#dictionary_parse-situations">evaled-when:parse-situations</a></code>. Or you could import those you use a lot.<br />Don't <code>(:use)</code>!</p>
+            </section>
+
+          </article>
+
+          <article class="macro definition">
+
+            <h1><span class="type">Macro</span> <span class="name self">evaled-when</span></h1>
+
+            <p class="args-and-retvals">(&amp;rest <var>situations</var>) &amp;body <var>body</var> &amp;environment <var>env</var> =&gt; nil</p>
+
+            <section class="arguments-and-values">
+              <h1>Arguments and Values</h1>
+              <ul>
+                <li><var>situations</var> -- A list of symbols.</li>
+                <li><var>body</var> -- An <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
+                <li><var>env</var> -- An environment.</li>
+              </ul>
+            </section>
+
+            <section class="description">
+              <h1>Description</h1>
+              <p>Executes the compile-time side-effects of <var>body</var> at compile-time. Nothing is executed at load time or runtime.</p>
+              <p><var>situations</var> must be <code>(:compile-toplevel)</code>, else the consequences are undefined.</p>
+              <p>
+                Bind <var>forms</var> to the result of <code>(evaled-when:extract-compile-toplevel-forms <var>body</var> <var>env</var>)</code>.
+                <br />
+                If <var>forms</var> is <code>nil</code>, return <code>nil</code>, else return <code>`(eval-when (:compile-toplevel) ,@forms)</code>.</p>
+              <p></p>
+            </section>
+
+          </article>
+
+        </section>
+
+        <section id="dictionary_extract-compile-toplevel-forms">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_extract-compile-toplevel-forms" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">extract-compile-toplevel-forms</a></span>
+            </span>
+          </h1>
+
+          <article class="function definition">
+
+            <h1><span class="type">Function</span> <span class="name self">evaled-when:extract-compile-toplevel-forms</span></h1>
+
+            <p class="args-and-retvals"><var>body</var> &amp;optional <var>env</var> <var>processing-mode</var> =&gt; <var>compile-toplevel-forms</var></p>
+
+            <section class="arguments-and-values">
+              <h1>Arguments and Values</h1>
+              <ul>
+                <li><var>body</var> -- An <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
+                <li><var>env</var> -- An environment. The default is <code>nil</code>, the global environment.</li>
+                <li><var>processing-mode</var> -- <code>:not-compile-time</code> or <code>:compile-time-too</code>. The default is <code>:not-compile-time</code>, and most users should never need to provide this argument.</li>
+                <li><var>compile-toplevel-forms</var> -- An <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
+              </ul>
+            </section>
+
+            <section class="description">
+              <h1>Description</h1>
+              <p>Walks <var>body</var> as a list of top-level forms in <var>env</var> according to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/03_bca.htm" target="_blank">CLHS 3.2.3.1 Processing of Top Level Forms</a>, returning the forms that would be evaluated at compile-time (assuming the <var>body</var> is actually at top-level).</p>
+            </section>
+
+          </article>
+
+        </section>
+
+        <section id="dictionary_parse-situations">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dictionary_parse-situations" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#dictionary">Dictionary</a>
+              <span class="crumb"><span class="s"> » </span><a class="here">parse-situations</a></span>
+            </span>
+          </h1>
+
+          <article class="function definition">
+
+            <h1><span class="type">Function</span> <span class="name self">evaled-when:parse-situations</span></h1>
+
+            <p class="args-and-retvals"><var>situations</var> =&gt; <var>compile-toplevel</var>, <var>load-toplevel</var>, <var>execute</var></p>
+
+            <section class="arguments-and-values">
+              <h1>Arguments and Values</h1>
+              <ul>
+                <li><var>situations</var> -- A list.</li>
+                <li><var>compile-toplevel</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
+                <li><var>load-toplevel</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
+                <li><var>execute</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
+              </ul>
+            </section>
+
+            <section class="description">
+              <h1>Description</h1>
+              <p>Helps parse <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_eval_w.htm" target="_blank">eval-when</a> situations lists.</p>
+              <p><var>compile-toplevel</var> will be true if <var>situations</var> contains the symbol <code>:compile-toplevel</code> or <code>compile</code> at least once, else it will be false.</p>
+              <p><var>load-toplevel</var> will be true if <var>situations</var> contains the symbol <code>:load-toplevel</code> or <code>load</code> at least once, else it will be false.</p>
+              <p><var>execute</var> will be true if <var>situations</var> contains the symbol <code>:execute</code> or <code>eval</code> at least once, else it will be false.</p>
+              <p>The consequences are undefined if <var>situations</var> is not a list containing only the 6 aforementioned symbols corresponding to the 3 <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_eval_w.htm" target="_blank">eval-when</a> situations.</p>
+            </section>
+
+          </article>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#dictionary">
+            "<span>Dictionary</span>" end.
+          </a>
+        </nav>
+
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <div class="back-to-top left">
+        <a href="#">⬆</a>
+      </div>
+      <div class="main">
+        <a href="https://validator.w3.org/check?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Flibraries%2Fevaled-when%2F">✔ HTML5</a>
+        <a href="https://www.hexstreamsoft.com/README">✔ Public Domain</a>
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Flibraries%2Fevaled-when%2F">✔ CSS3</a>
+        <a>✔ Mobile-friendly</a>
+      </div>
+      <div class="back-to-top right">
+        <a href="#">⬆</a>
+      </div>
+    </footer>
+
+  </body>
+</html>
