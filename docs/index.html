@@ -121,7 +121,7 @@
         </h1>
 
         <p>Many macros have interesting compile-time side-effects that would normally be hard or impossible to replicate without integrating with their internals.</p>
-        <p><code class="relevant"><a href="#dictionary_evaled-when">evaled-when</a></code> allows you to trivially and portably extract and replicate these compile-time side-effects, which can be useful if you're trying to make a better version of <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm" target="_blank">defclass</a> (as indeed I am), for instance.</p>
+        <p><code class="relevant"><a href="#dictionary_evaled-when">evaled-when</a></code> allows you to trivially and portably extract and replicate these compile-time side-effects, which can be useful if you're trying to make a better version of <a href="https://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm" target="_blank">defclass</a> (as indeed I am), for instance.</p>
 
       </section>
 
@@ -178,7 +178,7 @@
               <h1>Arguments and Values</h1>
               <ul>
                 <li><var>situations</var> -- A list of symbols.</li>
-                <li><var>body</var> -- An <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
+                <li><var>body</var> -- An <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
                 <li><var>env</var> -- An environment.</li>
               </ul>
             </section>
@@ -219,16 +219,16 @@
             <section class="arguments-and-values">
               <h1>Arguments and Values</h1>
               <ul>
-                <li><var>body</var> -- An <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
+                <li><var>body</var> -- An <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
                 <li><var>env</var> -- An environment. The default is <code>nil</code>, the global environment.</li>
                 <li><var>processing-mode</var> -- <code>:not-compile-time</code> or <code>:compile-time-too</code>. The default is <code>:not-compile-time</code>, and most users should never need to provide this argument.</li>
-                <li><var>compile-toplevel-forms</var> -- An <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
+                <li><var>compile-toplevel-forms</var> -- An <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_i.htm#implicit_progn" target="_blank">implicit progn</a>.</li>
               </ul>
             </section>
 
             <section class="description">
               <h1>Description</h1>
-              <p>Walks <var>body</var> as a list of top-level forms in <var>env</var> according to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/03_bca.htm" target="_blank">CLHS 3.2.3.1 Processing of Top Level Forms</a>, returning the forms that would be evaluated at compile-time (assuming the <var>body</var> is actually at top-level).</p>
+              <p>Walks <var>body</var> as a list of top-level forms in <var>env</var> according to <a href="https://www.lispworks.com/documentation/HyperSpec/Body/03_bca.htm" target="_blank">CLHS 3.2.3.1 Processing of Top Level Forms</a>, returning the forms that would be evaluated at compile-time (assuming the <var>body</var> is actually at top-level).</p>
             </section>
 
           </article>
@@ -257,19 +257,19 @@
               <h1>Arguments and Values</h1>
               <ul>
                 <li><var>situations</var> -- A list.</li>
-                <li><var>compile-toplevel</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
-                <li><var>load-toplevel</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
-                <li><var>execute</var> -- A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
+                <li><var>compile-toplevel</var> -- A <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
+                <li><var>load-toplevel</var> -- A <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
+                <li><var>execute</var> -- A <a href="https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean" target="_blank">generalized boolean</a>.</li>
               </ul>
             </section>
 
             <section class="description">
               <h1>Description</h1>
-              <p>Helps parse <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_eval_w.htm" target="_blank">eval-when</a> situations lists.</p>
+              <p>Helps parse <a href="https://www.lispworks.com/documentation/HyperSpec/Body/s_eval_w.htm" target="_blank">eval-when</a> situations lists.</p>
               <p><var>compile-toplevel</var> will be true if <var>situations</var> contains the symbol <code>:compile-toplevel</code> or <code>compile</code> at least once, else it will be false.</p>
               <p><var>load-toplevel</var> will be true if <var>situations</var> contains the symbol <code>:load-toplevel</code> or <code>load</code> at least once, else it will be false.</p>
               <p><var>execute</var> will be true if <var>situations</var> contains the symbol <code>:execute</code> or <code>eval</code> at least once, else it will be false.</p>
-              <p>The consequences are undefined if <var>situations</var> is not a list containing only the 6 aforementioned symbols corresponding to the 3 <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_eval_w.htm" target="_blank">eval-when</a> situations.</p>
+              <p>The consequences are undefined if <var>situations</var> is not a list containing only the 6 aforementioned symbols corresponding to the 3 <a href="https://www.lispworks.com/documentation/HyperSpec/Body/s_eval_w.htm" target="_blank">eval-when</a> situations.</p>
             </section>
 
           </article>
